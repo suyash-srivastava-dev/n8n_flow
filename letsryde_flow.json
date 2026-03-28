@@ -12,30 +12,16 @@
       "name": "Get User (Webhook)",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
-      "position": [460, 300],
-      "webhookId": "letsryde-get-user"
+      "position": [200, 300]
     },
     {
       "parameters": {
         "operation": "lookup",
-        "documentId": {
-          "__rl": true,
-          "value": "",
-          "mode": "id"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "Sheet1",
-          "mode": "list",
-          "cachedResultName": "Sheet1"
-        },
+        "documentId": { "__rl": true, "value": "", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Sheet1", "mode": "list", "cachedResultName": "Sheet1" },
         "filtersUI": {
           "filterValues": [
-            {
-              "column": "Mobile number",
-              "action": "equals",
-              "value": "={{ $json.query.mobile }}"
-            }
+            { "column": "Mobile number", "action": "equals", "value": "={{ $json.query.mobile }}" }
           ]
         }
       },
@@ -43,7 +29,7 @@
       "name": "Lookup User",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.1,
-      "position": [680, 300]
+      "position": [420, 300]
     },
     {
       "parameters": {
@@ -56,59 +42,136 @@
       "name": "Update User (Webhook)",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
-      "position": [460, 520],
-      "webhookId": "letsryde-update-user"
+      "position": [200, 520]
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({ json: item.json.body || {} }));"
+      },
+      "id": "extract-body-code-node",
+      "name": "Extract Body",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [420, 520]
     },
     {
       "parameters": {
         "operation": "update",
-        "documentId": {
-          "__rl": true,
-          "value": "",
-          "mode": "id"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "Sheet1",
-          "mode": "list",
-          "cachedResultName": "Sheet1"
-        },
+        "documentId": { "__rl": true, "value": "", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Sheet1", "mode": "list", "cachedResultName": "Sheet1" },
         "columnToMatchOn": "Mobile number",
-        "valueToMatchOn": "={{ $json.body['Mobile number'] }}",
-        "columns": {
-          "mappingMode": "autoMapInputData",
-          "value": {}
-        }
+        "valueToMatchOn": "={{ $json['Mobile number'] }}",
+        "columns": { "mappingMode": "autoMapInputData", "value": {} }
       },
       "id": "7814b7e9-eabc-4b13-aec0-0d32bb3f9ff3",
       "name": "Update Sheet Row",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.1,
-      "position": [680, 520]
+      "position": [640, 520]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "letsryde-create",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "eb3431f1-new-create-webhook",
+      "name": "Create User (Webhook)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 700]
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(item => ({ json: item.json.body || {} }));"
+      },
+      "id": "extract-body-create",
+      "name": "Extract Body (Create)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [420, 700]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Sheet1", "mode": "list", "cachedResultName": "Sheet1" },
+        "columns": { "mappingMode": "autoMapInputData", "value": {} }
+      },
+      "id": "d0f91ab1-new-append-sheet",
+      "name": "Append Sheet Row",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.1,
+      "position": [640, 700]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "letsryde-admin-login",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "e4dc90b3-f5c7-4ad3-99b8-ac7fc0a8a68b",
+      "name": "Admin Login Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 880]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            { "value1": "={{ $json.body.password }}", "value2": "={{ $env['ADMIN_PASSWORD'] }}" }
+          ]
+        }
+      },
+      "id": "da5d15f1-3ecf-47dc-a5aa-a0bae00fa828",
+      "name": "Check Password",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [420, 880]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": { "boolean": [ { "name": "success", "value": true } ] },
+        "options": {}
+      },
+      "id": "cf14abae-d3cb-45e0-9118-a6d1dc4de630",
+      "name": "Login Success",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [640, 800]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "boolean": [ { "name": "success", "value": false } ],
+          "string": [ { "name": "message", "value": "Invalid admin password" } ]
+        },
+        "options": {}
+      },
+      "id": "a96a32d6-44ec-4f4c-9828-a4a3170e1bba",
+      "name": "Login Failed",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [640, 960]
     }
   ],
   "pinData": {},
   "connections": {
-    "Get User (Webhook)": {
+    "Get User (Webhook)": { "main": [ [ { "node": "Lookup User", "type": "main", "index": 0 } ] ] },
+    "Update User (Webhook)": { "main": [ [ { "node": "Extract Body", "type": "main", "index": 0 } ] ] },
+    "Extract Body": { "main": [ [ { "node": "Update Sheet Row", "type": "main", "index": 0 } ] ] },
+    "Create User (Webhook)": { "main": [ [ { "node": "Extract Body (Create)", "type": "main", "index": 0 } ] ] },
+    "Extract Body (Create)": { "main": [ [ { "node": "Append Sheet Row", "type": "main", "index": 0 } ] ] },
+    "Admin Login Webhook": { "main": [ [ { "node": "Check Password", "type": "main", "index": 0 } ] ] },
+    "Check Password": {
       "main": [
-        [
-          {
-            "node": "Lookup User",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Update User (Webhook)": {
-      "main": [
-        [
-          {
-            "node": "Update Sheet Row",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        [ { "node": "Login Success", "type": "main", "index": 0 } ],
+        [ { "node": "Login Failed", "type": "main", "index": 0 } ]
       ]
     }
   },

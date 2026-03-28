@@ -52,12 +52,17 @@ Create the following exact column headers in the first row (A1 to AC1):
 1. Open your n8n instance.
 2. Go to **Workflows** and click **Import from File**.
 3. Select the `letsryde_flow.json` file provided in this folder.
-4. Once imported, you will see two branches with Google Sheets nodes.
-5. **Connect Credentials**: Double-click the Google Sheets node and connect your Google account.
-6. **Set Document**: In the Google Sheets node, select your newly created Google Sheet.
-7. **Ensure Webhooks point correctly**:
-   - The first webhook listens on `GET /letsryde-user`
-   - The second webhook listens on `POST /letsryde-update`
+4. Once imported, you will see four branches:
+   - GET `/letsryde-user` -> Fetches user data
+   - POST `/letsryde-update` -> Updates existing data in Sheets
+   - POST `/letsryde-create` -> Appends a new user record in Sheets
+   - POST `/letsryde-admin-login` -> Verifies admin password
+5. **Connect Credentials**: Double-click the Google Sheets nodes and connect your Google account.
+6. **Set Document**: In each Google Sheets node, select your newly created Google Sheet.
+7. **Set Admin Password Environment Variable**: The admin login securely verifies the password using an n8n environment variable. You MUST run your n8n instance with the `ADMIN_PASSWORD` environment variable set.
+   - Using docker: `docker run ... -e ADMIN_PASSWORD=your_secure_password n8n/n8n`
+   - Using npm/shell: `export ADMIN_PASSWORD=your_secure_password && n8n start`
+   - Using n8n Cloud / self-hosted environments: Add `ADMIN_PASSWORD` variable to your `.env` or settings.
 8. **Enable workflow**: Toggle the switch at the top right to make the workflow Active.
 
 *(Note: Webhook calls require CORS. If you are running n8n locally without a tunnel, ensure your n8n environment variables allow CORS: `N8N_CORS_ALLOWED_ORIGINS=*`)*

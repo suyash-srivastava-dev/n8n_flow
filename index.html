@@ -34,20 +34,10 @@
             line-height: 1.6;
         }
 
-        /* Utility */
-        .hidden {
-            display: none !important;
-        }
+        .hidden { display: none !important; }
+        .text-primary { color: var(--primary); }
+        .font-serif { font-family: 'Playfair Display', serif; }
 
-        .text-primary {
-            color: var(--primary);
-        }
-
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Toast */
         #toast {
             position: fixed;
             top: 20px;
@@ -63,20 +53,10 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        #toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
+        #toast.show { transform: translateY(0); opacity: 1; }
+        #toast.success { background-color: var(--success); }
+        #toast.error { background-color: var(--error); }
 
-        #toast.success {
-            background-color: var(--success);
-        }
-
-        #toast.error {
-            background-color: var(--error);
-        }
-
-        /* Auth Container */
         .auth-wrapper {
             min-height: 100vh;
             display: flex;
@@ -93,11 +73,6 @@
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             text-align: center;
-        }
-
-        .logo {
-            max-width: 180px;
-            margin-bottom: 20px;
         }
 
         .auth-tabs {
@@ -119,10 +94,7 @@
             transition: color 0.3s;
         }
 
-        .auth-tab.active {
-            color: var(--primary);
-        }
-
+        .auth-tab.active { color: var(--primary); }
         .auth-tab.active::after {
             content: '';
             position: absolute;
@@ -146,16 +118,17 @@
             color: var(--text-main);
         }
 
-        .input-group input:not([type="checkbox"]) {
+        .input-group input:not([type="checkbox"]), .input-group textarea, .input-group select {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid var(--border);
             border-radius: 8px;
             font-size: 15px;
             transition: border-color 0.3s, box-shadow 0.3s;
+            font-family: 'Inter', sans-serif;
         }
 
-        .input-group input:focus {
+        .input-group input:focus, .input-group textarea:focus, .input-group select:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(220, 78, 27, 0.1);
@@ -178,10 +151,7 @@
             box-shadow: 0 4px 12px rgba(220, 78, 27, 0.2);
         }
 
-        .btn-primary:hover {
-            background: var(--primary-hover);
-            transform: translateY(-1px);
-        }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
 
         .btn-secondary {
             background: #ffffff;
@@ -190,11 +160,8 @@
             margin-top: 10px;
         }
 
-        .btn-secondary:hover {
-            background: #f1f1f1;
-        }
+        .btn-secondary:hover { background: #f1f1f1; }
 
-        /* App Container */
         .app-wrapper {
             max-width: 1000px;
             margin: 0 auto;
@@ -213,10 +180,6 @@
             top: 0;
         }
 
-        .header .logo-container img {
-            max-width: 150px;
-        }
-
         .header h1 {
             color: var(--primary);
             font-size: 32px;
@@ -225,23 +188,9 @@
             font-weight: 800;
         }
 
-        .header h2 {
-            font-size: 24px;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .header p.subtitle {
-            color: var(--primary);
-            font-size: 18px;
-            margin-top: 5px;
-        }
-
-        .header p.quote {
-            color: var(--text-muted);
-            font-size: 14px;
-            font-weight: 500;
-        }
+        .header h2 { font-size: 24px; color: var(--text-muted); font-weight: 500; }
+        .header p.subtitle { color: var(--primary); font-size: 18px; margin-top: 5px; }
+        .header p.quote { color: var(--text-muted); font-size: 14px; font-weight: 500; }
 
         .admin-controls {
             background: white;
@@ -255,15 +204,8 @@
             border-left: 4px solid var(--primary);
         }
 
-        .admin-controls .input-group {
-            margin-bottom: 0;
-            flex: 1;
-        }
-
-        .admin-controls .btn {
-            width: auto;
-            padding: 12px 25px;
-        }
+        .admin-controls .input-group { margin-bottom: 0; flex: 1; }
+        .admin-controls .btn { width: auto; padding: 12px 25px; }
 
         .report-card {
             background: var(--card-bg);
@@ -273,23 +215,13 @@
             margin-bottom: 30px;
         }
 
-        .grid-header {
-            background: #f1f3f5;
-            padding: 15px 20px;
-            font-weight: 600;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--border);
-        }
-
         .grid-row {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             border-bottom: 1px solid var(--border);
         }
 
-        .grid-row:last-child {
-            border-bottom: none;
-        }
+        .grid-row:last-child { border-bottom: none; }
 
         .grid-cell {
             padding: 15px 20px;
@@ -299,9 +231,7 @@
             justify-content: center;
         }
 
-        .grid-cell:last-child {
-            border-right: none;
-        }
+        .grid-cell:last-child { border-right: none; }
 
         .grid-cell label {
             font-size: 12px;
@@ -311,7 +241,7 @@
             text-transform: uppercase;
         }
 
-        .grid-cell input {
+        .grid-cell input, .grid-cell textarea, .grid-cell select {
             width: 100%;
             border: none;
             background: transparent;
@@ -319,97 +249,40 @@
             color: var(--text-main);
             font-weight: 500;
             padding: 4px 0;
+            font-family: 'Inter', sans-serif;
+            resize: vertical;
         }
 
-        .grid-cell input:focus {
+        .grid-cell input:focus, .grid-cell textarea:focus, .grid-cell select:focus {
             outline: none;
             border-bottom: 1px solid var(--primary);
         }
 
-        .grid-cell input:read-only {
-            color: var(--text-main);
-            font-weight: 600;
-        }
+        .grid-cell input:read-only, .grid-cell textarea:read-only { color: var(--text-main); font-weight: 600; }
+        .grid-cell input:read-only:focus, .grid-cell textarea:read-only:focus { border-bottom: none; }
 
-        .grid-cell input:read-only:focus {
-            border-bottom: none;
-        }
-
-        /* Colspans */
-        .col-3 {
-            grid-column: span 3;
-        }
-
-        .col-4 {
-            grid-column: span 4;
-        }
-
-        .col-6 {
-            grid-column: span 6;
-        }
-
-        .col-12 {
-            grid-column: span 12;
-        }
+        .col-2 { grid-column: span 2; }
+        .col-3 { grid-column: span 3; }
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+        .col-12 { grid-column: span 12; }
 
         @media (max-width: 768px) {
-            .grid-cell {
-                grid-column: span 12;
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .header {
-                text-align: center;
-                margin-top: 20px;
-            }
-
-            .header .logo-container {
-                position: relative;
-                margin-bottom: 15px;
-                text-align: center;
-            }
-
-            .admin-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
+            .grid-cell { grid-column: span 12; border-right: none; border-bottom: 1px solid var(--border); }
+            .header { text-align: center; margin-top: 20px; }
+            .header .logo-container { position: relative; margin-bottom: 15px; text-align: center; }
+            .admin-controls { flex-direction: column; align-items: stretch; }
         }
 
-        .kyb-section {
-            padding: 30px 20px;
-        }
+        .checklist-section { padding: 30px 20px; border-bottom: 1px solid var(--border); }
+        .checklist-section:last-of-type { border-bottom: none; }
+        .checklist-section h3 { color: var(--primary); text-transform: uppercase; font-size: 22px; margin-bottom: 5px; }
+        .checklist-section p.section-sub { color: var(--text-muted); font-size: 14px; margin-bottom: 25px; }
 
-        .kyb-section h3 {
-            color: var(--primary);
-            text-transform: uppercase;
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
+        .checkbox-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
 
-        .kyb-section p {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-
-        .checkbox-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-radius: 8px;
-            transition: background 0.2s;
-        }
-
-        .checkbox-item:hover {
-            background: #f8f9fa;
-        }
+        .checkbox-item { display: flex; align-items: center; padding: 10px; border-radius: 8px; transition: background 0.2s; }
+        .checkbox-item:hover { background: #f8f9fa; }
 
         .checkbox-item input[type="checkbox"] {
             appearance: none;
@@ -423,11 +296,7 @@
             transition: all 0.2s;
         }
 
-        .checkbox-item input[type="checkbox"]:checked {
-            background-color: var(--primary);
-            border-color: var(--primary);
-        }
-
+        .checkbox-item input[type="checkbox"]:checked { background-color: var(--primary); border-color: var(--primary); }
         .checkbox-item input[type="checkbox"]:checked::after {
             content: '';
             position: absolute;
@@ -440,68 +309,35 @@
             transform: rotate(45deg);
         }
 
-        .checkbox-item input[type="checkbox"]:disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
+        .checkbox-item input[type="checkbox"]:disabled { cursor: not-allowed; opacity: 0.7; }
+        .checkbox-item label { font-size: 15px; font-weight: 500; cursor: pointer; color: var(--text-main); flex: 1; line-height: 1.3; }
 
-        .checkbox-item label {
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            color: var(--text-main);
-        }
-
-        .actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-            padding: 20px;
-            border-top: 1px solid var(--border);
-            background: #f8f9fa;
-        }
-
+        .actions { display: flex; justify-content: flex-end; gap: 15px; padding: 20px; border-top: 1px solid var(--border); background: #f8f9fa; }
+        
         .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(255, 255, 255, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            flex-direction: column;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 2000; flex-direction: column;
         }
 
         .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary);
-            border-radius: 50%;
+            width: 50px; height: 50px;
+            border: 4px solid #f3f3f3; border-top: 4px solid var(--primary); border-radius: 50%;
             animation: spin 1s linear infinite;
         }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .setup-warning {
-            background: #fff3cd;
-            color: #856404;
-            padding: 10px;
-            text-align: center;
-            font-size: 14px;
-            border-bottom: 1px solid #ffeeba;
-        }
+        .setup-warning { background: #fff3cd; color: #856404; padding: 10px; text-align: center; font-size: 14px; border-bottom: 1px solid #ffeeba; }
+        
+        /* Table Styles for Records */
+        .records-table-container { padding: 30px 20px; overflow-x: auto;}
+        .records-table { width: 100%; border-collapse: collapse; min-width: 800px; }
+        .records-table th, .records-table td { border: 1px solid var(--border); padding: 12px; text-align: left; }
+        .records-table th { background-color: #f1f3f5; font-size: 13px; color: var(--text-muted); text-transform: uppercase; }
+        .records-table td input, .records-table td select { width: 100%; border: none; background: transparent; font-size: 14px; padding: 5px; }
+        .records-table td input:focus { outline: none; border-bottom: 1px solid var(--primary); }
     </style>
 </head>
 
@@ -516,10 +352,7 @@
     <!-- Auth View -->
     <div id="auth-view" class="auth-wrapper">
         <div class="auth-card">
-            <!-- Ensure to replace this placeholder if logo is available -->
-            <h1
-                style="color: var(--primary); font-weight: 900; font-size: 32px; font-style: italic; margin-bottom: 20px;">
-                LETS RYDE</h1>
+            <img src="https://letsryde.co.in/storage/2024/06/new-logo.png" alt="Lets Ryde Logo" style="max-height: 80px; margin-bottom: 20px;">
             <h2>Welcome to Portal</h2>
             <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 25px;">Check your training progress</p>
 
@@ -535,7 +368,7 @@
                 </div>
                 <div class="input-group hidden" id="login-password-group">
                     <label for="login-password">Admin Password</label>
-                    <input type="password" id="login-password" placeholder="admin123">
+                    <input type="password" id="login-password" placeholder="Admin Password">
                 </div>
                 <button type="submit" class="btn btn-primary">Continue</button>
             </form>
@@ -544,16 +377,9 @@
 
     <!-- App View -->
     <div id="app-view" class="app-wrapper hidden">
-        <div class="setup-warning">
-            Note: Ensure your n8n workflows are active and CORS is configured. Set the N8N Base URL in localStorage or
-            edit the HTML file.
-        </div>
-
         <header class="header">
             <div class="logo-container">
-                <h1
-                    style="color: var(--primary); font-weight: 900; font-size: 38px; font-style: italic; line-height: 1;">
-                    LETS RYDE</h1>
+                <img src="https://letsryde.co.in/storage/2024/06/new-logo.png" alt="Lets Ryde Logo" style="max-height: 50px; margin-bottom: 5px;">
                 <p style="font-size: 12px; font-weight: 700; letter-spacing: 1px;">TRAIN TOUR RENT</p>
             </div>
             <h1>TRAINING REPORT CARD</h1>
@@ -568,120 +394,147 @@
                 <input type="tel" id="search-mobile" placeholder="Enter mobile number to view/edit">
             </div>
             <button class="btn btn-primary" onclick="searchUser()">Search</button>
+            <button class="btn btn-primary" onclick="createNewRecord()" style="background-color: var(--success); border-color: var(--success);">Create New</button>
             <button class="btn btn-secondary" onclick="logout()" style="margin-top: 0;">Logout</button>
         </div>
 
         <form id="report-form" class="report-card">
-            <!-- Grid Row 1 -->
             <div class="grid-row">
-                <div class="grid-cell col-3">
-                    <label>Name</label>
-                    <input type="text" id="Name" name="Name">
-                </div>
-                <div class="grid-cell col-3">
-                    <label>Date: Session 1</label>
-                    <input type="date" id="Date Session 1" name="Date Session 1">
-                </div>
-                <div class="grid-cell col-2">
-                    <label>Session 2</label>
-                    <input type="date" id="Date Session 2" name="Date Session 2">
-                </div>
-                <div class="grid-cell col-2">
-                    <label>Session 3</label>
-                    <input type="date" id="Date Session 3" name="Date Session 3">
-                </div>
-                <div class="grid-cell col-2">
-                    <label>Session 4</label>
-                    <input type="date" id="Date Session 4" name="Date Session 4">
-                </div>
+                <div class="grid-cell col-3"><label>Name</label><input type="text" id="Name" name="Name"></div>
+                <div class="grid-cell col-3"><label>Date: Session 1</label><input type="date" id="Date Session 1" name="Date Session 1"></div>
+                <div class="grid-cell col-2"><label>Session 2</label><input type="date" id="Date Session 2" name="Date Session 2"></div>
+                <div class="grid-cell col-2"><label>Session 3</label><input type="date" id="Date Session 3" name="Date Session 3"></div>
+                <div class="grid-cell col-2"><label>Session 4</label><input type="date" id="Date Session 4" name="Date Session 4"></div>
             </div>
 
-            <!-- Grid Row 2 -->
             <div class="grid-row">
-                <div class="grid-cell col-3">
-                    <label>Roll number</label>
-                    <input type="text" id="Roll number" name="Roll number">
-                </div>
-                <div class="grid-cell col-3">
-                    <label>Date of completion</label>
-                    <input type="date" id="Date of completion" name="Date of completion">
-                </div>
-                <div class="grid-cell col-6"></div> <!-- Empty area to match layout -->
+                <div class="grid-cell col-3"><label>Roll number</label><input type="text" id="Roll number" name="Roll number"></div>
+                <div class="grid-cell col-3"><label>Date of completion</label><input type="date" id="Date of completion" name="Date of completion"></div>
+                <div class="grid-cell col-6"></div>
             </div>
 
-            <!-- Grid Row 3 -->
             <div class="grid-row">
-                <div class="grid-cell col-3">
-                    <label>Mobile number</label>
-                    <input type="tel" id="Mobile number" name="Mobile number" readonly>
-                </div>
-                <div class="grid-cell col-3">
-                    <label>Practice Session 1</label>
-                    <input type="text" id="Practice Session 1" name="Practice Session 1">
-                </div>
-                <div class="grid-cell col-2">
-                    <label>Practice 2</label>
-                    <input type="text" id="Practice Session 2" name="Practice Session 2">
-                </div>
-                <div class="grid-cell col-2">
-                    <label>Practice 3</label>
-                    <input type="text" id="Practice Session 3" name="Practice Session 3">
-                </div>
-                <div class="grid-cell col-2">
-                    <label>Practice 4</label>
-                    <input type="text" id="Practice Session 4" name="Practice Session 4">
-                </div>
+                <div class="grid-cell col-3"><label>Mobile number</label><input type="tel" id="Mobile number" name="Mobile number" readonly></div>
+                <div class="grid-cell col-3"><label>Practice Session 1</label><input type="text" id="Practice Session 1" name="Practice Session 1"></div>
+                <div class="grid-cell col-2"><label>Practice 2</label><input type="text" id="Practice Session 2" name="Practice Session 2"></div>
+                <div class="grid-cell col-2"><label>Practice 3</label><input type="text" id="Practice Session 3" name="Practice Session 3"></div>
+                <div class="grid-cell col-2"><label>Practice 4</label><input type="text" id="Practice Session 4" name="Practice Session 4"></div>
             </div>
 
-            <!-- Grid Row 4 -->
             <div class="grid-row">
-                <div class="grid-cell col-3">
-                    <label>Email id</label>
-                    <input type="email" id="Email id" name="Email id">
-                </div>
-                <div class="grid-cell col-3">
-                    <label>Trainer session 1</label>
-                    <input type="text" id="Trainer session 1" name="Trainer session 1">
-                </div>
-                <div class="grid-cell col-2">
-                    <label>Trainer 2</label>
-                    <input type="text" id="Trainer session 2" name="Trainer session 2">
-                </div>
-                <div class="grid-cell col-2">
-                    <label>Trainer 3</label>
-                    <input type="text" id="Trainer session 3" name="Trainer session 3">
-                </div>
-                <div class="grid-cell col-2">
-                    <label>Trainer 4</label>
-                    <input type="text" id="Trainer session 4" name="Trainer session 4">
-                </div>
+                <div class="grid-cell col-3"><label>Email id</label><input type="email" id="Email id" name="Email id"></div>
+                <div class="grid-cell col-3"><label>Trainer session 1</label><input type="text" id="Trainer session 1" name="Trainer session 1"></div>
+                <div class="grid-cell col-2"><label>Trainer 2</label><input type="text" id="Trainer session 2" name="Trainer session 2"></div>
+                <div class="grid-cell col-2"><label>Trainer 3</label><input type="text" id="Trainer session 3" name="Trainer session 3"></div>
+                <div class="grid-cell col-2"><label>Trainer 4</label><input type="text" id="Trainer session 4" name="Trainer session 4"></div>
             </div>
 
-            <!-- Grid Row 5 -->
             <div class="grid-row">
-                <div class="grid-cell col-3">
-                    <label>Insta ID</label>
-                    <input type="text" id="Insta ID" name="Insta ID">
-                </div>
+                <div class="grid-cell col-3"><label>Insta ID</label><input type="text" id="Insta ID" name="Insta ID"></div>
                 <div class="grid-cell col-9"></div>
             </div>
 
-            <!-- Grid Row 6 -->
             <div class="grid-row">
-                <div class="grid-cell col-3">
-                    <label>Profession</label>
-                    <input type="text" id="Profession" name="Profession">
-                </div>
+                <div class="grid-cell col-3"><label>Profession</label><input type="text" id="Profession" name="Profession"></div>
                 <div class="grid-cell col-9"></div>
             </div>
 
-            <div class="kyb-section">
-                <p>Please check out the boxes once participant is done with the following exercises -</p>
+            <!-- KYB Section -->
+            <div class="checklist-section">
+                <p class="section-sub">Please check out the boxes once participant is done with the following exercises -</p>
                 <h3>KYB: KNOW YOUR BIKE</h3>
+                <div class="checkbox-grid" id="kyb-container"></div>
+            </div>
 
-                <div class="checkbox-grid" id="kyb-container">
-                    <!-- Checkboxes generated via JS -->
+            <!-- Rock & Roll Section -->
+            <div class="checklist-section">
+                <h3>Rock & Roll</h3>
+                <div class="checkbox-grid" id="rock-roll-container"></div>
+            </div>
+
+            <!-- Twist Day Section -->
+            <div class="checklist-section">
+                <h3>Twist Day</h3>
+                <div class="checkbox-grid" id="twist-day-container"></div>
+            </div>
+
+            <!-- Mix Day Section -->
+            <div class="checklist-section">
+                <h3>Mix Day</h3>
+                <div class="checkbox-grid" id="mix-day-container"></div>
+            </div>
+
+            <!-- Notes and Certification -->
+            <div class="checklist-section">
+                <div class="grid-row" style="border:none;">
+                    <div class="grid-cell col-6">
+                        <label>Notes/Remarks by student & trainer</label>
+                        <textarea id="Notes 1" name="Notes 1" rows="3"></textarea>
+                    </div>
+                    <div class="grid-cell col-6">
+                        <label>Additional Notes/Remarks</label>
+                        <textarea id="Notes 2" name="Notes 2" rows="3"></textarea>
+                    </div>
                 </div>
+                <div class="grid-row" style="border:none; margin-top:20px;">
+                    <div class="grid-cell col-6">
+                        <label>Certification Given</label>
+                        <select id="Certification Given" name="Certification Given">
+                            <option value="">- Select -</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="grid-cell col-6">
+                        <label>Certification Date</label>
+                        <input type="date" id="Certification Date" name="Certification Date">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Records Section -->
+            <div class="records-table-container">
+                <h3 style="color:var(--primary); text-transform:uppercase; margin-bottom: 15px;">For Records</h3>
+                <table class="records-table">
+                    <thead>
+                        <tr>
+                            <th>Blood group</th>
+                            <th>Emergency contact</th>
+                            <th>Relation with emergency contact</th>
+                            <th>Any medical issue</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" id="Blood group"></td>
+                            <td><input type="tel" id="Emergency contact"></td>
+                            <td><input type="text" id="Relation"></td>
+                            <td><input type="text" id="Any medical issue"></td>
+                            <td><input type="text" id="Address"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="records-table" style="margin-top:-1px;">
+                    <thead>
+                        <tr>
+                            <th>Additional Practice</th>
+                            <th>Breakfast ride</th>
+                            <th>Outstation rides</th>
+                            <th>Expedition ride</th>
+                            <th>Event</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" id="Additional Practice"></td>
+                            <td><input type="text" id="Breakfast ride"></td>
+                            <td><input type="text" id="Outstation rides"></td>
+                            <td><input type="text" id="Expedition ride"></td>
+                            <td><input type="text" id="Event"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="actions" id="admin-actions" style="display: none;">
@@ -697,36 +550,37 @@
     </div>
 
     <script>
-        // CONFIGURATION
-        // Replace this with your actual n8n webhook base URL
         const N8N_BASE_URL = localStorage.getItem('n8nBaseUrl') || 'https://n8n.srv1215731.hstgr.cloud/webhook';
-
         let currentRole = 'user';
         let currentUserData = null;
+        let isCreatingNew = false;
 
-        const kybFields = [
-            "Weight height concept",
-            "Zero Balance",
-            "Round about bike balancing",
-            "Walk with bike",
-            "Penguin concept",
-            "Center stand",
-            "Pick the bike",
-            "Details parts and control",
-            "Gorilla Braking",
-            "Safe Sound"
-        ];
+        const checklistConfig = {
+            'kyb-container': [
+                "Weight height concept", "Zero Balance", "Round about bike balancing",
+                "Walk with bike", "Penguin concept", "Center stand", "Pick the bike",
+                "Details parts and control", "Gorilla Braking", "Safe Sound"
+            ],
+            'rock-roll-container': [
+                "Clutch Play", "Start and Stop", "Gear shifting", "Types of Gear System", "Muscle memory Coordination"
+            ],
+            'twist-day-container': [
+                "Maneuvering Techniques", "Short Circle", "Slalom Course", "Figure of 8", "U turn", "Emergency Braking"
+            ],
+            'mix-day-container': [
+                "Traffic practice", "Braking with Clutch", "Practice all the techniques", "Practical aspects of group riding"
+            ]
+        };
 
-        // Initialize checkboxes
-        const kybContainer = document.getElementById('kyb-container');
-        kybFields.forEach(field => {
-            const div = document.createElement('div');
-            div.className = 'checkbox-item';
-            div.innerHTML = `
-                <input type="checkbox" id="${field}" name="${field}" value="Yes">
-                <label for="${field}">${field}</label>
-            `;
-            kybContainer.appendChild(div);
+        // Initialize checkboxes dynamically
+        Object.keys(checklistConfig).forEach(containerId => {
+            const container = document.getElementById(containerId);
+            checklistConfig[containerId].forEach(field => {
+                const div = document.createElement('div');
+                div.className = 'checkbox-item';
+                div.innerHTML = `<input type="checkbox" id="${field}" name="${field}" value="Yes"><label for="${field}">${field}</label>`;
+                container.appendChild(div);
+            });
         });
 
         function showToast(msg, type = 'success') {
@@ -736,17 +590,13 @@
             setTimeout(() => toast.className = '', 3000);
         }
 
-        function toggleLoading(show) {
-            document.getElementById('loading').classList.toggle('hidden', !show);
-        }
+        function toggleLoading(show) { document.getElementById('loading').classList.toggle('hidden', !show); }
 
         function setRole(role) {
             currentRole = role;
             document.getElementById('tab-user').classList.toggle('active', role === 'user');
             document.getElementById('tab-admin').classList.toggle('active', role === 'admin');
             document.getElementById('login-password-group').classList.toggle('hidden', role === 'user');
-
-            // If switching to admin, mobile isn't required for login (it will just be a password gate)
             if (role === 'admin') {
                 document.getElementById('login-mobile').placeholder = 'Admin Username (optional)';
                 document.getElementById('login-mobile').removeAttribute('required');
@@ -762,11 +612,25 @@
             const pass = document.getElementById('login-password').value;
 
             if (currentRole === 'admin') {
-                if (pass === 'admin123') {
-                    showToast('Admin logged in');
-                    switchToApp('admin');
-                } else {
-                    showToast('Invalid admin password', 'error');
+                toggleLoading(true);
+                try {
+                    const res = await fetch(`${N8N_BASE_URL}/letsryde-admin-login`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ password: pass })
+                    });
+                    const data = await res.json();
+                    if (res.ok && data.success) {
+                        showToast('Admin logged in');
+                        switchToApp('admin');
+                    } else {
+                        showToast(data.message || 'Invalid admin password', 'error');
+                    }
+                } catch (error) {
+                    console.error('Auth error:', error);
+                    showToast('Failed to authenticate. Ensure n8n is running with ADMIN_PASSWORD env variable.', 'error');
+                } finally {
+                    toggleLoading(false);
                 }
             } else {
                 if (!mobile) return showToast('Mobile number required', 'error');
@@ -785,28 +649,23 @@
             document.getElementById('app-view').classList.remove('hidden');
 
             const isUser = role === 'user';
-
-            // Manage UI based on role
             document.getElementById('admin-controls').classList.toggle('hidden', isUser);
             document.getElementById('admin-actions').style.display = isUser ? 'none' : 'flex';
             document.getElementById('user-controls').style.display = isUser ? 'block' : 'none';
 
             // Make inputs readonly/disabled for users
-            const inputs = document.querySelectorAll('#report-form input');
+            const inputs = document.querySelectorAll('#report-form input, #report-form textarea, #report-form select');
             inputs.forEach(input => {
-                if (input.id === 'Mobile number') return; // Mobile always readonly in form
-                if (input.type === 'checkbox') {
+                if (input.id === 'Mobile number') return; 
+                if (input.type === 'checkbox' || input.tagName === 'SELECT') {
                     input.disabled = isUser;
                 } else {
                     input.readOnly = isUser;
                 }
             });
 
-            if (isUser && currentUserData) {
-                populateForm(currentUserData);
-            } else if (!isUser) {
-                document.getElementById('report-form').reset();
-            }
+            if (isUser && currentUserData) populateForm(currentUserData);
+            else if (!isUser) document.getElementById('report-form').reset();
         }
 
         function logout() {
@@ -824,20 +683,13 @@
                     headers: { 'Accept': 'application/json' }
                 });
                 if (!res.ok) throw new Error('API Error');
-
                 const responseData = await res.json();
-
-                // n8n Google Sheets node usually returns an array of matching rows
-                if (Array.isArray(responseData) && responseData.length > 0) {
-                    currentUserData = responseData[0];
-                } else if (responseData && !Array.isArray(responseData) && Object.keys(responseData).length > 0) {
-                    currentUserData = responseData; // If it returned a single object
-                } else {
-                    currentUserData = null;
-                }
+                
+                if (Array.isArray(responseData) && responseData.length > 0) currentUserData = responseData[0];
+                else if (responseData && !Array.isArray(responseData) && Object.keys(responseData).length > 0) currentUserData = responseData;
+                else currentUserData = null;
             } catch (error) {
                 console.error('Fetch error:', error);
-                // For demonstration, if n8n is not running, show a warning
                 showToast('Failed to connect to n8n backend.', 'error');
             } finally {
                 toggleLoading(false);
@@ -847,6 +699,9 @@
         async function searchUser() {
             const mobile = document.getElementById('search-mobile').value;
             if (!mobile) return showToast('Enter a mobile number to search', 'error');
+            
+            isCreatingNew = false;
+            document.getElementById('Mobile number').readOnly = true;
 
             await loadUserData(mobile);
             if (currentUserData) {
@@ -854,64 +709,68 @@
                 showToast('User data loaded');
             } else {
                 showToast('No user found. You can create a new record.', 'success');
-                document.getElementById('report-form').reset();
+                createNewRecord();
                 document.getElementById('Mobile number').value = mobile;
             }
         }
 
+        function createNewRecord() {
+            document.getElementById('report-form').reset();
+            const mobileInput = document.getElementById('Mobile number');
+            mobileInput.readOnly = false;
+            mobileInput.focus();
+            isCreatingNew = true;
+            currentUserData = null;
+            showToast('Enter details for new record. Mobile number is required.', 'success');
+        }
+
         function populateForm(data) {
-            const inputs = document.querySelectorAll('#report-form input');
+            const inputs = document.querySelectorAll('#report-form input, #report-form textarea, #report-form select');
             inputs.forEach(input => {
                 const key = input.id;
                 if (data[key] !== undefined) {
-                    if (input.type === 'checkbox') {
-                        // Support various truthy values (Yes, true, checked, etc.)
-                        input.checked = data[key] === 'Yes' || data[key] === true || data[key] === 'TRUE';
-                    } else {
-                        input.value = data[key];
-                    }
+                    if (input.type === 'checkbox') input.checked = (data[key] === 'Yes' || data[key] === true || data[key] === 'TRUE');
+                    else input.value = data[key];
                 } else {
-                    // Reset if field missing
                     if (input.type === 'checkbox') input.checked = false;
                     else input.value = '';
                 }
             });
-            // Ensure Mobile is populated
-            if (data['Mobile number']) {
-                document.getElementById('Mobile number').value = data['Mobile number'];
-            }
+            if (data['Mobile number']) document.getElementById('Mobile number').value = data['Mobile number'];
         }
 
         async function saveData() {
             const form = document.getElementById('report-form');
             const data = {};
-            const inputs = form.querySelectorAll('input');
-
+            const inputs = form.querySelectorAll('input, textarea, select');
             let hasMobile = false;
 
             inputs.forEach(input => {
-                if (input.type === 'checkbox') {
-                    data[input.id] = input.checked ? 'Yes' : '';
-                } else {
-                    data[input.id] = input.value;
-                }
+                if (input.type === 'checkbox') data[input.id] = input.checked ? 'Yes' : '';
+                else data[input.id] = input.value;
                 if (input.id === 'Mobile number' && input.value.trim() !== '') hasMobile = true;
             });
 
-            if (!hasMobile) {
-                return showToast('Mobile number is required to save.', 'error');
-            }
+            if (!hasMobile) return showToast('Mobile number is required to save.', 'error');
 
             toggleLoading(true);
+            const endpoint = isCreatingNew ? 'letsryde-create' : 'letsryde-update';
+            
             try {
-                const res = await fetch(`${N8N_BASE_URL}/letsryde-update`, {
+                const res = await fetch(`${N8N_BASE_URL}/${endpoint}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
-
                 if (!res.ok) throw new Error('Save Failed');
-                showToast('Data saved successfully!');
+                showToast(isCreatingNew ? 'Record created successfully!' : 'Data updated successfully!');
+                
+                // After successful creation, it's no longer 'new'
+                if (isCreatingNew) {
+                    isCreatingNew = false;
+                    document.getElementById('Mobile number').readOnly = true;
+                    currentUserData = data;
+                }
             } catch (error) {
                 console.error('Save error:', error);
                 showToast('Failed to save data. Check backend.', 'error');
@@ -919,7 +778,6 @@
                 toggleLoading(false);
             }
         }
-
     </script>
 </body>
 
