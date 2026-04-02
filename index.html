@@ -272,6 +272,20 @@
             .header { text-align: center; margin-top: 20px; }
             .header .logo-container { position: relative; margin-bottom: 15px; text-align: center; }
             .admin-controls { flex-direction: column; align-items: stretch; }
+
+            /* Reorder sections on mobile: personal details first, then training data */
+            .report-card {
+                display: flex;
+                flex-direction: column;
+            }
+            .grid-row[data-section="personal-1"]  { order: 1; }
+            .grid-row[data-section="personal-2"]  { order: 2; }
+            .grid-row[data-section="sessions"]     { order: 3; }
+            .grid-row[data-section="practice"]     { order: 4; }
+            .grid-row[data-section="trainer"]      { order: 5; }
+            .checklist-section                     { order: 6; }
+            .records-table-container               { order: 7; }
+            .actions                               { order: 8; }
         }
 
         .checklist-section { padding: 30px 20px; border-bottom: 1px solid var(--border); }
@@ -399,44 +413,42 @@
         </div>
 
         <form id="report-form" class="report-card">
-            <div class="grid-row">
-                <div class="grid-cell col-3"><label>Name</label><input type="text" id="Name" name="Name"></div>
+            <!-- PERSONAL DETAILS: Name, Roll, Mobile, Email, Insta ID, Profession -->
+            <div class="grid-row" data-section="personal-1">
+                <div class="grid-cell col-4"><label>Name</label><input type="text" id="Name" name="Name"></div>
+                <div class="grid-cell col-4"><label>Roll number</label><input type="text" id="Roll number" name="Roll number"></div>
+                <div class="grid-cell col-4"><label>Mobile number</label><input type="tel" id="Mobile number" name="Mobile number" readonly></div>
+            </div>
+
+            <div class="grid-row" data-section="personal-2">
+                <div class="grid-cell col-4"><label>Email id</label><input type="email" id="Email id" name="Email id"></div>
+                <div class="grid-cell col-4"><label>Insta ID</label><input type="text" id="Insta ID" name="Insta ID"></div>
+                <div class="grid-cell col-4"><label>Profession</label><input type="text" id="Profession" name="Profession"></div>
+            </div>
+
+            <!-- SESSION / TRAINING DATA -->
+            <div class="grid-row" data-section="sessions">
                 <div class="grid-cell col-3"><label>Date: Session 1</label><input type="date" id="Date Session 1" name="Date Session 1"></div>
                 <div class="grid-cell col-2"><label>Session 2</label><input type="date" id="Date Session 2" name="Date Session 2"></div>
                 <div class="grid-cell col-2"><label>Session 3</label><input type="date" id="Date Session 3" name="Date Session 3"></div>
                 <div class="grid-cell col-2"><label>Session 4</label><input type="date" id="Date Session 4" name="Date Session 4"></div>
-            </div>
-
-            <div class="grid-row">
-                <div class="grid-cell col-3"><label>Roll number</label><input type="text" id="Roll number" name="Roll number"></div>
                 <div class="grid-cell col-3"><label>Date of completion</label><input type="date" id="Date of completion" name="Date of completion"></div>
-                <div class="grid-cell col-6"></div>
             </div>
 
-            <div class="grid-row">
-                <div class="grid-cell col-3"><label>Mobile number</label><input type="tel" id="Mobile number" name="Mobile number" readonly></div>
+            <div class="grid-row" data-section="practice">
                 <div class="grid-cell col-3"><label>Practice Session 1</label><input type="text" id="Practice Session 1" name="Practice Session 1"></div>
                 <div class="grid-cell col-2"><label>Practice 2</label><input type="text" id="Practice Session 2" name="Practice Session 2"></div>
                 <div class="grid-cell col-2"><label>Practice 3</label><input type="text" id="Practice Session 3" name="Practice Session 3"></div>
                 <div class="grid-cell col-2"><label>Practice 4</label><input type="text" id="Practice Session 4" name="Practice Session 4"></div>
+                <div class="grid-cell col-3"></div>
             </div>
 
-            <div class="grid-row">
-                <div class="grid-cell col-3"><label>Email id</label><input type="email" id="Email id" name="Email id"></div>
+            <div class="grid-row" data-section="trainer">
                 <div class="grid-cell col-3"><label>Trainer session 1</label><input type="text" id="Trainer session 1" name="Trainer session 1"></div>
                 <div class="grid-cell col-2"><label>Trainer 2</label><input type="text" id="Trainer session 2" name="Trainer session 2"></div>
                 <div class="grid-cell col-2"><label>Trainer 3</label><input type="text" id="Trainer session 3" name="Trainer session 3"></div>
                 <div class="grid-cell col-2"><label>Trainer 4</label><input type="text" id="Trainer session 4" name="Trainer session 4"></div>
-            </div>
-
-            <div class="grid-row">
-                <div class="grid-cell col-3"><label>Insta ID</label><input type="text" id="Insta ID" name="Insta ID"></div>
-                <div class="grid-cell col-9"></div>
-            </div>
-
-            <div class="grid-row">
-                <div class="grid-cell col-3"><label>Profession</label><input type="text" id="Profession" name="Profession"></div>
-                <div class="grid-cell col-9"></div>
+                <div class="grid-cell col-3"></div>
             </div>
 
             <!-- KYB Section -->
